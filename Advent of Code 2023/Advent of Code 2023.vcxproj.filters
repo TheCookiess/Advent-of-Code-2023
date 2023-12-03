@@ -13,16 +13,22 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\days">
+      <UniqueIdentifier>{7e920550-21d4-4670-9cee-4fa38e2c5b07}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="day1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="classCore.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="day1.cpp">
+      <Filter>Source Files\days</Filter>
+    </ClCompile>
+    <ClCompile Include="day2.cpp">
+      <Filter>Source Files\days</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
