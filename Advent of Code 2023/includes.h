@@ -14,14 +14,14 @@
 #include <set>
 #include <unordered_map>
 #include <unordered_set>
-
 using namespace std;
+
+// this is gonna get really big lul
 class Solutions {
 public:
 	Solutions();
 	~Solutions();
 
-	void updateFrameTiming(float period);
 	void outputTxt(vector<string> output);
 	vector<string> getInput(string problem);
 
@@ -30,5 +30,18 @@ public:
 	
 	int d2_p1(vector<string> input);
 	int d2_p2(vector<string> input);
+
+	int d3_p1(vector<string> input);
+	int d3_p2(vector<string> input);
+
+	int d4_p1(vector<string> input);
+	int d4_p2(vector<string> input);
+
+	int d5_p1(vector<string> input);
+	int d5_p2(vector<string> input);
+
+private:
+	std::vector<std::string> split(std::string s, std::string delimiter);
+	std::vector<std::string> split(const std::string& s, char delim);
 };
 

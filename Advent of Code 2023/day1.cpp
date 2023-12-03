@@ -26,8 +26,8 @@ int Solutions::d1_p2(vector<string> input)
 	umap["one"] = 1, umap["two"]   = 2, umap["three"] = 3, umap["four"] = 4, umap["five"] = 5,
 	umap["six"] = 6, umap["seven"] = 7, umap["eight"] = 8, umap["nine"] = 9;
 
-	// lamba function oooh
-	auto findNumber = [](string line, int i, unordered_map<string, int>& umap)
+	// lamba function, captures variable "umap" by reference!!
+	auto findNumber = [&umap](string line, int i)
 	{
 		if (isdigit(line[i])) return line[i] - '0';
 		for (int j = 3; j <= 5; j++) // checking all possible lengths of the word, 3 characters --> 5
@@ -39,11 +39,11 @@ int Solutions::d1_p2(vector<string> input)
 	for (string line : input) {
 		int first = -1, last = -1;
 		for (int i = 0; i < line.length(); i++) {
-			first = findNumber(line, i, umap);
+			first = findNumber(line, i);
 			if (first != -1) break;
 		}
 		for (int i = line.length() - 1; i >= 0; i--) {
-			last = findNumber(line, i, umap);
+			last = findNumber(line, i);
 			if (last != -1) break;
 		}
 		summation += first * 10 + last;
