@@ -181,6 +181,18 @@ int Solutions::d5_p2(vector<string> input)
 	return smallestLocation;
 }
 
+//	> loop through map index.
+//		> loop through while seed pairs exist
+//			> remove current seed pairing from list.
+//			> create a new list of seed pairing (newSeedPairs)
+//			> if entire range of values fits within mapping
+//				> add new seed pair == mapped pair
+//			> else check for lower and upper bounds for pairs that aren't inside mapping
+//				> add to newSeedPairs
+//		> seedPairs = newSeedPairs
+// > search seedPairs for lowest starting value (pair index 0)
+// > return lowestValue.
+
 /*
 int Solutions::d5_p2(vector<string> input)
 {
