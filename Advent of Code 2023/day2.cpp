@@ -1,41 +1,11 @@
 #pragma once
-#include "includes.h"
+#include "pch.h"
 using namespace std;
 
 int Solutions::d2_p1(vector<string> input)
 {
 	constexpr int red  = 12, green = 13, blue = 14;
 	int summation = 0;
-	
-	/*for (string line : input) {
-		constexpr int rLen = 3,  gLen  = 5,  bLen = 4;
-		constexpr int firstNum = 8;
-		int gameID = line[5] - '0';
-		for (int i = firstNum; i < line.size() - 2; i++) {
-			if (r > red || g > green || b > blue) { gameID = 0; break; } // invalid game
-			char& c = line[i]; // c should always be a number.
-		
-			if (c == ';') // next set
-				r = 0, g = 0, b = 0;
-
-			switch (line[i + 2]) { // get colour of items pulled out.
-			case 'r':
-				r += c - '0';	   // ASCII --> int
-				i += rLen + 2;	   // Index to char after colour name
-				break;
-			case 'g':
-				g += c - '0';
-				i += gLen + 2;
-				break;
-			case 'b':
-				b += c - '0';
-				i += bLen + 2;
-				break;
-			}
-		}
-		summation += gameID;
-	}
-	*/
 	
 	for (string line : input) {
 		int gameID = strtol(split(split(line, ":")[0], " ")[1].c_str(), nullptr, 10); // absolute line of code

@@ -1,29 +1,6 @@
 #pragma once
-#include "includes.h"
+#include "pch.h"
 using namespace std;
-
-			//	//cout << "number captured: " << num << endl;
-			//	//cout << "x: " << x << endl;
-			//	//cout << "y: " << y << endl;
-			//	//for (int i = 0; i < 80; i++)
-			//	//	cout << '=';
-			//	//cout << endl;
-			//
-			//	/*
-			//	for (int i = -1; i <= num.size(); i++) {// check neighbours for whole length of number
-			//		for (int j = -1; j <= 1; j++) { // check top & bot neighbours
-			//			//if (y + i >= input.size() || y + i < 0 || x + j >= line.size() || x + j < 0) continue; // bounds check
-			//			if (input[y + i][x + j - num.size() - 1] != '.') // x is currently char after word. so go back
-			//				summation += strtol(num.c_str(), nullptr, 10);
-			//		}
-			//	}
-			//	for (int i = -1; i < 1; i++)
-			//	for (int j = -1; j < 1; j++) {
-			//		char dC = input[y + i][x + j];
-			//		if (dC == '.') // if adj char is == '.'
-			//			isValid = false;
-			//	}
-			//	*/
 
 int Solutions::d3_p1(vector<string> input)
 {
