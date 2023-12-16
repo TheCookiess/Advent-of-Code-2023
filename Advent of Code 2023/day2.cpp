@@ -2,7 +2,7 @@
 #include "pch.h"
 using namespace std;
 
-int Solutions::d2_p1(vector<string> input)
+int64_t Solutions::d2_p1(vector<string> input)
 {
 	constexpr int red  = 12, green = 13, blue = 14;
 	int summation = 0;
@@ -43,7 +43,7 @@ int Solutions::d2_p1(vector<string> input)
 }
 
 // that was relatively easy..
-int Solutions::d2_p2(vector<string> input)
+int64_t Solutions::d2_p2(vector<string> input)
 {
 	int summation = 0;
 	for (string line : input) {

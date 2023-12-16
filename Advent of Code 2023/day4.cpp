@@ -2,7 +2,7 @@
 #include "pch.h"
 using namespace std;
 
-int Solutions::d4_p1(vector<string> input)
+int64_t Solutions::d4_p1(vector<string> input)
 {
 	int summation = 0;
 	
@@ -42,7 +42,7 @@ int Solutions::d4_p1(vector<string> input)
 	return summation;
 }
 
-int Solutions::d4_p2(vector<string> input)
+int64_t Solutions::d4_p2(vector<string> input)
 {
 	int summation = 0;
 

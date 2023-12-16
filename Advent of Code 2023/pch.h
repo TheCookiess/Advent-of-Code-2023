@@ -18,6 +18,9 @@
 #include <set>
 #include <unordered_map>
 #include <unordered_set>
+#include <windows.h>
+#include <numeric>
+#include <ranges>
 using namespace std;
 
 // this is gonna get really big lul
@@ -26,37 +29,37 @@ public:
 	Solutions();
 	~Solutions();
 
-	int strToInt(string str);
-	void removeCharacters(string& str, set<char> chars);
+	int64_t strToInt(string str);
+	string removeCharacters(const string& str, set<char> chars);
 	void outputTxt(vector<string> output);
 	vector<string> getInput(string problem);
 
-	int d1_p1(vector<string> input);
-	int d1_p2(vector<string> input);
+	int64_t d1_p1(vector<string> input);
+	int64_t d1_p2(vector<string> input);
+
+	int64_t d2_p1(vector<string> input);
+	int64_t d2_p2(vector<string> input);
+
+	int64_t d3_p1(vector<string> input);
+	int64_t d3_p2(vector<string> input);
 	
-	int d2_p1(vector<string> input);
-	int d2_p2(vector<string> input);
-
-	int d3_p1(vector<string> input);
-	int d3_p2(vector<string> input);
-
-	int d4_p1(vector<string> input);
-	int d4_p2(vector<string> input);
-
-	int d5_p1(vector<string> input);
-	int d5_p2(vector<string> input);
-
-	int d6_p1(vector<string> input);
-	int d6_p2(vector<string> input);
-
-	int d7_p1(vector<string> input);
-	int d7_p2(vector<string> input);
-
-	int d8_p1(vector<string> input);
-	int d8_p2(vector<string> input);
-
-	int d9_p1(vector<string> input);
-	int d9_p2(vector<string> input);
+	int64_t d4_p1(vector<string> input);
+	int64_t d4_p2(vector<string> input);
+	
+	int64_t d5_p1(vector<string> input);
+	int64_t d5_p2(vector<string> input);
+	
+	int64_t d6_p1(vector<string> input);
+	int64_t d6_p2(vector<string> input);
+	
+	int64_t d7_p1(vector<string> input);
+	int64_t d7_p2(vector<string> input);
+	
+	int64_t d8_p1(vector<string> input);
+	int64_t d8_p2(vector<string> input);
+	
+	int64_t d9_p1(vector<string> input);
+	int64_t d9_p2(vector<string> input);
 
 private:
 	std::vector<std::string> split(std::string s, std::string delimiter);

@@ -5,7 +5,7 @@ using namespace std;
 Solutions::Solutions() {};
 Solutions::~Solutions() {};
 
-int Solutions::d1_p1(vector<string> input)
+int64_t Solutions::d1_p1(vector<string> input)
 {
 	int summation = 0;
 	for (string line : input) {
@@ -19,7 +19,7 @@ int Solutions::d1_p1(vector<string> input)
 	return summation;
 }
 
-int Solutions::d1_p2(vector<string> input)
+int64_t Solutions::d1_p2(vector<string> input)
 {
 	int summation = 0;
 	unordered_map<string, int> umap;

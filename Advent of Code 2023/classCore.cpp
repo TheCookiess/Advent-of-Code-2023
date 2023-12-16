@@ -59,15 +59,15 @@ std::vector<std::string> Solutions::split(const std::string& s, char delim) {
 	return result;
 }
 
-void Solutions::removeCharacters(string& s, set<char> chars) {
-	for (int i = 0; i < s.size(); i++)
-		if (chars.find(s[i]) != chars.end()) {
-			s.erase(s.begin() + i);
-			i--;
-		}
+string Solutions::removeCharacters(const string& s, set<char> chars) {
+	string newStr = "";
+	for (char c : s)
+		if (chars.find(c) == chars.end())
+			newStr += c;
+	return newStr;
 }
 
-int Solutions::strToInt(string num) {
+int64_t Solutions::strToInt(string num) {
 	long long summation = 0;
 	for (int i = 0; i < num.size(); i++) {
 		summation *= 10;

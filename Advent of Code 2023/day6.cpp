@@ -2,7 +2,7 @@
 #include "pch.h"
 using namespace std;
 
-int Solutions::d6_p1(vector<string> input)
+int64_t Solutions::d6_p1(vector<string> input)
 {
 	auto strToInt = [](string num) {
 		long long summation = 0;
@@ -48,7 +48,7 @@ int Solutions::d6_p1(vector<string> input)
 	return summation;
 }
 
-int Solutions::d6_p2(vector<string> input)
+int64_t Solutions::d6_p2(vector<string> input)
 {
 	auto strToInt = [](string num) {
 		long long summation = 0;
