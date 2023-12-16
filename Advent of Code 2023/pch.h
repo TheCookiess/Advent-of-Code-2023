@@ -26,6 +26,8 @@ public:
 	Solutions();
 	~Solutions();
 
+	int strToInt(string str);
+	void removeCharacters(string& str, set<char> chars);
 	void outputTxt(vector<string> output);
 	vector<string> getInput(string problem);
 
@@ -43,6 +45,18 @@ public:
 
 	int d5_p1(vector<string> input);
 	int d5_p2(vector<string> input);
+
+	int d6_p1(vector<string> input);
+	int d6_p2(vector<string> input);
+
+	int d7_p1(vector<string> input);
+	int d7_p2(vector<string> input);
+
+	int d8_p1(vector<string> input);
+	int d8_p2(vector<string> input);
+
+	int d9_p1(vector<string> input);
+	int d9_p2(vector<string> input);
 
 private:
 	std::vector<std::string> split(std::string s, std::string delimiter);

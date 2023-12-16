@@ -58,3 +58,20 @@ std::vector<std::string> Solutions::split(const std::string& s, char delim) {
 
 	return result;
 }
+
+void Solutions::removeCharacters(string& s, set<char> chars) {
+	for (int i = 0; i < s.size(); i++)
+		if (chars.find(s[i]) != chars.end()) {
+			s.erase(s.begin() + i);
+			i--;
+		}
+}
+
+int Solutions::strToInt(string num) {
+	long long summation = 0;
+	for (int i = 0; i < num.size(); i++) {
+		summation *= 10;
+		summation += num[i] - '0';
+	}
+	return summation;
+}
