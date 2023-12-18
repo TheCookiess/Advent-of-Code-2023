@@ -61,6 +61,19 @@ public:
 	int64_t d9_p1(vector<string> input);
 	int64_t d9_p2(vector<string> input);
 
+	int64_t d10_p1(vector<string> input);
+	int64_t d10_p2(vector<string> input);
+
+	int64_t d11_p1(vector<string> input);
+	int64_t d11_p2(vector<string> input);
+
+	int64_t d12_p1(vector<string> input);
+	int64_t d12_p2(vector<string> input);
+
+	int64_t d13_p1(vector<string> input);
+	int64_t d13_p2(vector<string> input);
+
+
 private:
 	std::vector<std::string> split(std::string s, std::string delimiter);
 	std::vector<std::string> split(const std::string& s, char delim);

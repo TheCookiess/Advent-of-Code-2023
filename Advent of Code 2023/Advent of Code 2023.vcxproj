@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="classCore.cpp" />
+    <ClCompile Include="day10.cpp" />
     <ClCompile Include="day9.cpp" />
     <ClCompile Include="day2.cpp" />
     <ClCompile Include="day3.cpp" />
