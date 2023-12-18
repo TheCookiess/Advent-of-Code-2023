@@ -44,6 +44,13 @@ int64_t Solutions::d10_p1(vector<string> input)
 	auto ooB = [&input](int x, int y) -> bool 
 	{ return (x > input.size() || x < 0 || y > input[y].size() || y < 0); };
 
+	auto isInQueue = [](int x, int y, vector<Node>& queue) -> bool {
+		for (Node n : queue) if (n.x == x && n.y == y) return false;
+		return true;
+	};
+
+	auto 
+
 	auto getOppDirection = [](Direction d) -> Direction {
 		switch (d) {
 		case NORTH: return SOUTH;
@@ -84,22 +91,32 @@ int64_t Solutions::d10_p1(vector<string> input)
 				startIdx = getIdx(j, i);
 		}
 	if (startIdx == -1) return 0; // no start. is fucked.
-	
 
-	// all my homies hate recursion.
-	/*
+	/* this is fucking useless...
 	* Step 1: Start with node S and enqueue it to the queue.
-	* Step 2: Repeat the following steps for all the nodes in the graph.
+	* Step 2: Repeat the following steps for all the nodes in the graph.	
 	* Step 3: Dequeue S and process it.
 	* Step 4: Enqueue all the adjacent nodes of S and process them.
 	* [END OF LOOP]
 	* Step 6: EXIT
 	*/
 
-	vector<Node&> queue; queue.push_back(nodes[startIdx]);
+	vector<Node> queue; queue.push_back(nodes[startIdx]);
 	while (!queue.empty()) {
-		
+		Node n = queue[0]; // get item at front of queue
 
+		if (checkDirection(n.x, n.y, NORTH))
+			if (!isInQueue(n.x, n.y + 1, queue))
+				queue.push_back(nodes[getIdx(n.x, n.y + 1)]);
+		if (checkDirection(n.x, n.y, EAST))
+			if (!isInQueue(n.x + 1, n.y, queue))
+				queue.push_back(nodes[getIdx(n.x + 1, n.y + 1)]);
+		if (checkDirection(n.x, n.y, NORTH))
+			if (!isInQueue(n.x, n.y + 1, queue))
+				queue.push_back(nodes[getIdx(n.x, n.y + 1)]);
+		if (checkDirection(n.x, n.y, NORTH))
+			if (!isInQueue(n.x, n.y + 1, queue))
+				queue.push_back(nodes[getIdx(n.x, n.y + 1)]);
 
 	}
 		 
