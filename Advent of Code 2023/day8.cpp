@@ -100,39 +100,4 @@ int64_t Solutions::d8_p2(vector<string> input)
 		summation = std::lcm(summation, stepsToEnd[i]);
 
 	return summation;
-
-	//for (auto val : stepsToEnd)
-	//	summation += std::lcm(summation, val);
-
-	//steps = accumulate(stepsToEnd, stepsToEnd[0], [](int64_t acc, int64_t val) { return std::lcm(acc, val); });
-
-	//steps = lcm(allSteps);
-
-		/*
-		for (char c : directions) {
-			found = true;
-			steps++;
-
-			//cout << "| ";
-			for (string& node : startingNodes) {
-				//cout << node.c_str() << "->";
-
-				if (c == 'L')
-					node = nodes[node].first;
-				else if (c == 'R')
-					node = nodes[node].second;
-
-				if (node[2] != 'Z') found = false;
-
-				//cout << node.c_str() << " | ";
-			}
-			//cout << endl;
-
-			if (found) break;
-		}
-		//cout << "Next iter.. " << steps << endl;
-	}
-	*/
-
-	return summation;
 }
