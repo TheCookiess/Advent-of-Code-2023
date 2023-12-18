@@ -13,12 +13,14 @@ struct Node {
 	int x, y, dist;
 	char c;
 	vector<Direction> con;
+	bool checked;
 	Node(int X, int Y, char C, vector<Direction> CON) {
 		x = X;
 		y = Y;
 		c = C;
 		con = CON;
 		dist = 0;
+		checked = false;
 	}
 	Node() = default;
 };
@@ -77,9 +79,11 @@ int64_t Solutions::d10_p1(vector<string> input)
 	auto traverseNode = [&](int x, int y, Direction d,vector<Node>& graph, Node&  srcNode) -> void {
 		Node& n = nodes[getIdx(x, y)];
 		if (checkDirection(n.x, n.y, d))
-			if (!isInGraph(n.x, n.y, graph)) {
+			if (!nodes[getIdx(n.x, n.y)].checked) {
+				n.checked = true;
 				n.dist = srcNode.dist + 1;
 				graph.push_back(nodes[getIdx(n.x, n.y)]);
+
 				//cout << "Valid Node: "
 				//	<< n.c
 				//	<< " (" << n.x << "," << n.y << ") "
@@ -100,10 +104,10 @@ int64_t Solutions::d10_p1(vector<string> input)
 	int front = 0;
 	while (graph.size() > front) {
 		Node n = graph[front]; // get item at front of graph "queue"
-		cout << "Processing: "
-			<< n.c
-			<< " (" << n.x << "," << n.y << ") "
-			<< endl;
+		//cout << "Processing: "
+		//	<< n.c
+		//	<< " (" << n.x << "," << n.y << ") "
+		//	<< endl;
 
 		for (Direction d : n.con) {
 			switch (d) {
@@ -118,17 +122,17 @@ int64_t Solutions::d10_p1(vector<string> input)
 		front++;
 	}
 
-	int y = 0;
-	for (Node& n : nodes) {
-		if (n.y != y) {
-			y++; cout << endl;
-		}
-		if (isInGraph(n.x, n.y, graph))
-			cout << n.dist;
-		else
-			cout << '.';
-	}
-	cout << endl;
+	//int y = 0;
+	//for (Node& n : nodes) {
+	//	if (n.y != y) {
+	//		y++; cout << endl;
+	//	}
+	//	if (isInGraph(n.x, n.y, graph))
+	//		cout << n.dist;
+	//	else
+	//		cout << '.';
+	//}
+	//cout << endl;
 		 
 	int64_t largest = 0;
 	for (Node n : graph)
