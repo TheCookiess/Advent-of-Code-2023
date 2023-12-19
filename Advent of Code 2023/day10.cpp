@@ -13,14 +13,14 @@ struct Node {
 	int x, y, dist;
 	char c;
 	vector<Direction> con;
-	bool checked;
+	bool inGraph;
 	Node(int X, int Y, char C, vector<Direction> CON) {
 		x = X;
 		y = Y;
 		c = C;
 		con = CON;
 		dist = 0;
-		checked = false;
+		inGraph = false;
 	}
 	Node() = default;
 };
@@ -46,11 +46,6 @@ int64_t Solutions::d10_p1(vector<string> input)
 	auto ooB = [&input](int x, int y) -> bool 
 	{ return (x > input.size() || x < 0 || y > input[y].size() || y < 0); };
 
-	auto isInGraph = [](int x, int y, vector<Node>& graph) -> bool {
-		for (Node n : graph) if (n.x == x && n.y == y) return true;
-		return false;
-	};
-
 	auto getOppDirection = [](Direction d) -> Direction {
 		switch (d) {
 		case NORTH: return SOUTH;
@@ -60,16 +55,10 @@ int64_t Solutions::d10_p1(vector<string> input)
 		}
 	};
 
+	// Direction does not change coords, have to point towards that direction's node from src.
 	auto checkDirection = [&](int x, int y, Direction d) -> bool {
-		//switch (d) {
-		//case NORTH: y--; break;
-		//case EAST:  x++; break;
-		//case SOUTH: y++; break;
-		//case WEST:  x--; break;
-		//}
-
 		if (ooB(x, y)) return false;					// if is in bounds
-		if (!umap.contains(input[y][x])) return false;	// if is a letter
+		if (!umap.contains(input[y][x])) return false;	// if is a character
 		for (Direction dir : umap[input[y][x]])			// checks if pipe connects to node we're checking from.
 			if (dir == getOppDirection(d))
 				return true;
@@ -79,8 +68,8 @@ int64_t Solutions::d10_p1(vector<string> input)
 	auto traverseNode = [&](int x, int y, Direction d,vector<Node>& graph, Node&  srcNode) -> void {
 		Node& n = nodes[getIdx(x, y)];
 		if (checkDirection(n.x, n.y, d))
-			if (!nodes[getIdx(n.x, n.y)].checked) {
-				n.checked = true;
+			if (!nodes[getIdx(n.x, n.y)].inGraph) {
+				n.inGraph = true;
 				n.dist = srcNode.dist + 1;
 				graph.push_back(nodes[getIdx(n.x, n.y)]);
 
@@ -100,7 +89,9 @@ int64_t Solutions::d10_p1(vector<string> input)
 		}
 	if (startIdx == -1) return 0; // no start. is fucked.
 
-	vector<Node> graph; graph.push_back(nodes[startIdx]);
+	vector<Node> graph; 
+	nodes[startIdx].inGraph = true;
+	graph.push_back(nodes[startIdx]);
 	int front = 0;
 	while (graph.size() > front) {
 		Node n = graph[front]; // get item at front of graph "queue"
@@ -122,17 +113,17 @@ int64_t Solutions::d10_p1(vector<string> input)
 		front++;
 	}
 
-	//int y = 0;
-	//for (Node& n : nodes) {
-	//	if (n.y != y) {
-	//		y++; cout << endl;
-	//	}
-	//	if (isInGraph(n.x, n.y, graph))
-	//		cout << n.dist;
-	//	else
-	//		cout << '.';
-	//}
-	//cout << endl;
+	int y = 0;
+	for (Node& n : nodes) {
+		if (n.y != y) {
+			y++; cout << endl;
+		}
+		if (nodes[getIdx(n.x,n.y)].inGraph)
+			cout << n.c;
+		else
+			cout << '.';
+	}
+	cout << endl;
 		 
 	int64_t largest = 0;
 	for (Node n : graph)
@@ -141,6 +132,7 @@ int64_t Solutions::d10_p1(vector<string> input)
 	return largest;
 }
 
+// all times closed within the loop..
 int64_t Solutions::d10_p2(vector<string> input)
 {
 	return 0;
