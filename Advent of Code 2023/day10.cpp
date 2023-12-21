@@ -61,13 +61,6 @@ int64_t Solutions::d10_p1(vector<string> input)
 	};
 
 	auto checkDirection = [&](int x, int y, Direction d) -> bool {
-		//switch (d) {
-		//case NORTH: y--; break;
-		//case EAST:  x++; break;
-		//case SOUTH: y++; break;
-		//case WEST:  x--; break;
-		//}
-
 		if (ooB(x, y)) return false;					// if is in bounds
 		if (!umap.contains(input[y][x])) return false;	// if is a letter
 		for (Direction dir : umap[input[y][x]])			// checks if pipe connects to node we're checking from.
