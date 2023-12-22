@@ -21,7 +21,10 @@
 #include <windows.h>
 #include <numeric>
 #include <ranges>
+
 using namespace std;
+using s64 = int64_t;
+using u64 = uint64_t;
 
 // this is gonna get really big lul
 class Solutions {
