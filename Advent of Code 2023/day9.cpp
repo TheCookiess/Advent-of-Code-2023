@@ -1,14 +1,13 @@
 #pragma once
 #include "pch.h"
-using namespace std;
 
-auto strToInt_Signed = [](string num) -> int64_t {
+auto strToInt_Signed = [](string num) -> s64 {
 	bool isNeg = false;
 	if (num[0] == '-') {
 		isNeg = true;
 		num.erase(num.begin());
 	}
-	int64_t summation = 0;
+	s64 summation = 0;
 	for (int i = 0; i < num.size(); i++) {
 		summation *= 10;
 		summation += num[i] - '0';
@@ -16,27 +15,27 @@ auto strToInt_Signed = [](string num) -> int64_t {
 	return isNeg ? summation * -1 : summation;
 };
 
-int64_t Solutions::d9_p1(vector<string> input)
+s64 Solutions::d9_p1(vector<string> input)
 {
 
-	int64_t summation = 0;
-	vector<vector<int64_t>> nums(input.size());
-	for (int64_t i = 0; i < input.size(); i++) {
+	s64 summation = 0;
+	vector<vector<s64>> nums(input.size());
+	for (s64 i = 0; i < input.size(); i++) {
 		vector<string> splitLine = split(input[i], ' ');
 		for (string str : splitLine) 
 			nums[i].push_back(strToInt_Signed(str));
 	}
 
-	for (vector<int64_t> set : nums) {
+	for (vector<s64> set : nums) {
 
-		//for (int64_t num : set)
+		//for (s64 num : set)
 		//	cout << num << " ";
 		//cout << endl;
 
-		vector<vector<int64_t>> diffs;
+		vector<vector<s64>> diffs;
 		diffs.push_back(set);
 
-		int64_t iter = 0;
+		s64 iter = 0;
 		bool diffIsZero = false;
 		while (!diffIsZero) {
 
@@ -44,8 +43,8 @@ int64_t Solutions::d9_p1(vector<string> input)
 
 			diffIsZero = true;
 			diffs.push_back({}); // new set of differences
-			for (int64_t i = 1; i < diffs[iter].size(); i++) {
-				int64_t diff = diffs[iter][i] - diffs[iter][i - 1];
+			for (s64 i = 1; i < diffs[iter].size(); i++) {
+				s64 diff = diffs[iter][i] - diffs[iter][i - 1];
 				diffs[iter + 1].push_back(diff);
 				
 				if (diff != 0) diffIsZero = false;
@@ -60,8 +59,8 @@ int64_t Solutions::d9_p1(vector<string> input)
 		// for each set of differences. NOT INCLUDING last as last is all 0's
 		// add diff to next diff up (i - 1) += i
 		// repeat until i == 0
-		int64_t next = 0;
-		for (int64_t i = diffs.size() - 1; i >= 0; i--) {
+		s64 next = 0;
+		for (s64 i = diffs.size() - 1; i >= 0; i--) {
 			next += diffs[i][diffs[i].size() - 1];
 		}
 		summation += next;
@@ -76,27 +75,27 @@ int64_t Solutions::d9_p1(vector<string> input)
 	return summation;
 }
 
-int64_t Solutions::d9_p2(vector<string> input)
+s64 Solutions::d9_p2(vector<string> input)
 {
-	int64_t summation = 0;
+	s64 summation = 0;
 
-	vector<vector<int64_t>> nums(input.size());
-	for (int64_t i = 0; i < input.size(); i++) {
+	vector<vector<s64>> nums(input.size());
+	for (s64 i = 0; i < input.size(); i++) {
 		vector<string> splitLine = split(input[i], ' ');
 		for (string str : splitLine)
 			nums[i].push_back(strToInt_Signed(str));
 	}
 
-	for (vector<int64_t> set : nums) {
+	for (vector<s64> set : nums) {
 
-		//for (int64_t num : set)
+		//for (s64 num : set)
 		//	cout << num << " ";
 		//cout << endl;
 
-		vector<vector<int64_t>> diffs;
+		vector<vector<s64>> diffs;
 		diffs.push_back(set);
 
-		int64_t iter = 0;
+		s64 iter = 0;
 		bool diffIsZero = false;
 		while (!diffIsZero) {
 
@@ -104,8 +103,8 @@ int64_t Solutions::d9_p2(vector<string> input)
 
 			diffIsZero = true;
 			diffs.push_back({}); // new set of differences
-			for (int64_t i = 1; i < diffs[iter].size(); i++) {
-				int64_t diff = diffs[iter][i] - diffs[iter][i - 1];
+			for (s64 i = 1; i < diffs[iter].size(); i++) {
+				s64 diff = diffs[iter][i] - diffs[iter][i - 1];
 				diffs[iter + 1].push_back(diff);
 
 				if (diff != 0) diffIsZero = false;
@@ -121,8 +120,8 @@ int64_t Solutions::d9_p2(vector<string> input)
 		// add diff to next diff up (i - 1) += i
 		// repeat until i == 0
 
-		int64_t next = 0;
-		for (int64_t i = diffs.size() - 2; i >= 0; i--)
+		s64 next = 0;
+		for (s64 i = diffs.size() - 2; i >= 0; i--)
 			next = diffs[i][0] - next;
 		summation += next;
 

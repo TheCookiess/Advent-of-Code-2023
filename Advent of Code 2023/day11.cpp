@@ -1,6 +1,5 @@
 #pragma once
 #include "pch.h"
-using namespace std;
 
 s64 solution(vector<string> grid, s64 spacing)
 {

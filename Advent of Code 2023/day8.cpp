@@ -1,8 +1,7 @@
 #pragma once
 #include "pch.h"
-using namespace std;
 
-int64_t Solutions::d8_p1(vector<string> input)
+s64 Solutions::d8_p1(vector<string> input)
 {
 
 	string directions = removeCharacters(input[0], {' '});
@@ -49,7 +48,7 @@ int64_t Solutions::d8_p1(vector<string> input)
 }
 
 // my baby brute force <3
-int64_t Solutions::d8_p2(vector<string> input)
+s64 Solutions::d8_p2(vector<string> input)
 {
 	string directions = removeCharacters(input[0], { ' ' });
 	unordered_map<string, pair<string, string>> nodes;
@@ -66,10 +65,10 @@ int64_t Solutions::d8_p2(vector<string> input)
 			startingNodes.push_back(nodeName);
 	}
 
-	vector<int64_t> stepsToEnd;
+	vector<s64> stepsToEnd;
 	for (string& node : startingNodes) {
 		cout << "Starting new Node: " << node;
-		int64_t steps = 0;
+		s64 steps = 0;
 		bool found = false;
 		while (!found) {
 			for (char c : directions) {
@@ -95,7 +94,7 @@ int64_t Solutions::d8_p2(vector<string> input)
 		stepsToEnd.push_back(steps);
 	}
 	
-	int64_t summation = stepsToEnd[0];
+	s64 summation = stepsToEnd[0];
 	for (int i = 1; i < stepsToEnd.size(); i++)
 		summation = std::lcm(summation, stepsToEnd[i]);
 

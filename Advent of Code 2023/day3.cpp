@@ -1,8 +1,7 @@
 #pragma once
 #include "pch.h"
-using namespace std;
 
-int64_t Solutions::d3_p1(vector<string> input)
+s64 Solutions::d3_p1(vector<string> input)
 {
 	int summation = 0;
 	int yBound = input.size();
@@ -65,7 +64,7 @@ int64_t Solutions::d3_p1(vector<string> input)
 	return summation;
 }
 
-int64_t Solutions::d3_p2(vector<string> input)
+s64 Solutions::d3_p2(vector<string> input)
 {
 	long long summation = 0;
 	int yBound = input.size();

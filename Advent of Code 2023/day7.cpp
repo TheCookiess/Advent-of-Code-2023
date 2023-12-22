@@ -1,6 +1,5 @@
 #pragma once
 #include "pch.h"
-using namespace std;
 
 enum Rank_Order {
 	HIGH_CARD,
@@ -58,7 +57,7 @@ auto rankToStr = [](Rank_Order rank) -> string {
 };
 
 
-int64_t Solutions::d7_p1(vector<string> input)
+s64 Solutions::d7_p1(vector<string> input)
 {
 	auto cardRank = [](char c) -> int {
 		switch (c) {
@@ -129,7 +128,7 @@ int64_t Solutions::d7_p1(vector<string> input)
 
 // J == Joker, not Jack.
 // don't work, idk
-int64_t Solutions::d7_p2(vector<string> input)
+s64 Solutions::d7_p2(vector<string> input)
 {
 	auto cardRank = [](char c) -> int {
 		switch (c) {

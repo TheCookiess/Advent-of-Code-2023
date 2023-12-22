@@ -1,6 +1,5 @@
 #pragma once
 #include "pch.h"
-using namespace std;
 
 enum Direction {
 	NORTH,
@@ -26,7 +25,7 @@ struct Node {
 };
 
 
-int64_t Solutions::d10_p1(vector<string> input) 
+s64 Solutions::d10_p1(vector<string> input) 
 {
 	vector<Node> nodes;
 	unordered_map<char, vector<Direction>> umap =
@@ -125,7 +124,7 @@ int64_t Solutions::d10_p1(vector<string> input)
 	}
 	cout << endl;
 		 
-	int64_t largest = 0;
+	s64 largest = 0;
 	for (Node n : graph)
 		if (n.dist > largest) largest = n.dist;
 
@@ -133,7 +132,7 @@ int64_t Solutions::d10_p1(vector<string> input)
 }
 
 // all times closed within the loop..
-int64_t Solutions::d10_p2(vector<string> input)
+s64 Solutions::d10_p2(vector<string> input)
 {
 	return 0;
 }

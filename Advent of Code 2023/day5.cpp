@@ -1,7 +1,7 @@
+#pragma once
 #include "pch.h"
-using namespace std;
 
-int64_t Solutions::d5_p1(vector<string> input)
+s64 Solutions::d5_p1(vector<string> input)
 {
 	long long smallestLocation = INT64_MAX;
 
@@ -97,7 +97,7 @@ int64_t Solutions::d5_p1(vector<string> input)
 
 // just bruteforce it, this one was a doozy..
 // https://youtu.be/1fhA6C5Swok?t=314
-int64_t Solutions::d5_p2(vector<string> input)
+s64 Solutions::d5_p2(vector<string> input)
 {
 	long long smallestLocation = INT64_MAX;
 

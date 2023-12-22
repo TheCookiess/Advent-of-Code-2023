@@ -1,22 +1,22 @@
 #pragma once
 #include "pch.h"
-using namespace std;
 
 /* https://adventofcode.com/2023 */
 int main()
 {
 	Solutions* AOC = new Solutions;
-	vector<string> lines = AOC->getInput("11");
+	vector<string> lines = AOC->getInput("12");
 	s64 part1 = 0, part2 = 0;
-	
 	constexpr int loops = 1;
+	
 	auto p1_t1 = chrono::high_resolution_clock::now();
 	for (int i = 0; i < loops; i++)
-		part1 = AOC->d11_p1(lines);
+		part1 = AOC->d12_p1(lines);
 	auto p1_t2 = chrono::high_resolution_clock::now();
+
 	auto p2_t1 = chrono::high_resolution_clock::now();
 	for (int i = 0; i < loops; i++)
-		part2 = AOC->d11_p2(lines);
+		part2 = AOC->d12_p2(lines);
 	auto p2_t2 = chrono::high_resolution_clock::now();
 
 	chrono::duration<double, micro> p1_time = (p1_t2 - p1_t1) / loops;

@@ -1,6 +1,5 @@
 #pragma once
 #include "pch.h"
-using namespace std;
 
 void Solutions::outputTxt(vector<string> output)
 {
@@ -67,7 +66,7 @@ string Solutions::removeCharacters(const string& s, set<char> chars) {
 	return newStr;
 }
 
-int64_t Solutions::strToInt(string num) {
+s64 Solutions::strToInt(string num) {
 	long long summation = 0;
 	for (int i = 0; i < num.size(); i++) {
 		summation *= 10;

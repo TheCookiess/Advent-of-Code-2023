@@ -1,11 +1,7 @@
 #pragma once
 #include "pch.h"
-using namespace std;
 
-Solutions::Solutions() {};
-Solutions::~Solutions() {};
-
-int64_t Solutions::d1_p1(vector<string> input)
+s64 Solutions::d1_p1(vector<string> input)
 {
 	int summation = 0;
 	for (string line : input) {
@@ -19,7 +15,7 @@ int64_t Solutions::d1_p1(vector<string> input)
 	return summation;
 }
 
-int64_t Solutions::d1_p2(vector<string> input)
+s64 Solutions::d1_p2(vector<string> input)
 {
 	int summation = 0;
 	unordered_map<string, int> umap;
