@@ -96,7 +96,6 @@ s64 Solutions::d3_p2(vector<string> input)
 		return summation;
 	};
 
-	// absolute clusterfuckery
 	auto checkForGears = [&input, &umap, isInBounds, isCharGear, absoluteIndex](int x, int y, int num, int length) {
 		for (int dY = -1; dY <= 1; dY++)
 			for (int dX = -1; dX <= length; dX++)
