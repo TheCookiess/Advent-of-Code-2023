@@ -47,7 +47,6 @@ s64 Solutions::d8_p1(vector<string> input)
 	return steps;
 }
 
-// my baby brute force <3
 s64 Solutions::d8_p2(vector<string> input)
 {
 	string directions = removeCharacters(input[0], { ' ' });
